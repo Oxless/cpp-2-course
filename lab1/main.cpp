@@ -67,7 +67,7 @@ public:
             current = current->next;
         }
     }
-    
+
     ~CarList() {
         while (firstElement){
             Car* next  = firstElement->next;
@@ -112,15 +112,15 @@ public:
     int Size() {
         return size;
     }
-    
+
     bool operator >(const CarList &list) {
         return size > list.size;
     }
-    
+
     bool operator <(const CarList &list) {
         return size < list.size;
     }
-    
+
     void operator =(const CarList &list) {
         firstElement = nullptr;
         lastElement = nullptr;
@@ -190,5 +190,10 @@ istream& operator >>(istream &in, CarList &list) {
 int main() {
     CarList list;
     cin >> list;
+    CarList copiedList = list;
+    copiedList.AddElement("BMW", "M5", "Germany", 2020, 12, 4000000, 5000, 4.0);
+    cout << "Size of `list` > `copiedList`: " << (list > copiedList) << endl;
+    cout << "Copied list: " << endl << copiedList << endl;
+    cout << "List: " << endl;
     list.Show();
 }
