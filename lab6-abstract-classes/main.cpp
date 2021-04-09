@@ -8,6 +8,7 @@ protected:
     int year, price;
 
     Car() {
+        std::cout << "Using default constructor of abstract class" << std::endl;
         name = "N/a";
         model = "N/a";
         year = 0;
@@ -15,6 +16,7 @@ protected:
     }
 
     Car(std::string name, std::string model, int year, int price) {
+        std::cout << "Using constructor of abstract class" << std::endl;
         Car::name = name;
         Car::model = model;
         Car::year = year;
@@ -34,10 +36,12 @@ private:
 public:
 
     Truck() : Car() {
+        std::cout << "Using default constructor of Truck" << std::endl;
         lifting = 0;
     }
 
     Truck(std::string name, std::string model, int year, int price, int lifting) : Car(name, model, year, price) {
+        std::cout << "Using constructor of Truck" << std::endl;
         Truck::lifting = lifting;
     }
 
@@ -58,10 +62,12 @@ private:
 public:
 
     Bus() : Car() {
+        std::cout << "Using default constructor of Bus" << std::endl;
         roominess = 0;
     }
 
     Bus(std::string name, std::string model, int year, int price, int roominess) : Car(name, model, year, price) {
+        std::cout << "Using constructor of Bus" << std::endl;
         Bus::roominess = roominess;
     }
 
@@ -73,9 +79,11 @@ public:
 };
 
 int main() {
+    //Появилось поле "грузоподъемность"
     Truck truck("Volvo", "1234", 2020, 5000000, 4000);
-    Bus bus("Mercedes", "Bus", 2015, 4000000, 50);
     truck.Show();
+    //Появилось поле "вместительность"
+    Bus bus("Mercedes", "Bus", 2015, 4000000, 50);
     bus.Show();
     return 0;
 }
